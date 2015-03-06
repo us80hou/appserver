@@ -1,0 +1,93 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'D:\\nodejs\\\\node.exe',
+1 verbose cli   'D:\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'node-formidable' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.35
+4 verbose node symlink D:\nodejs\\node.exe
+5 warn package.json node@0.0.0 No description
+6 warn package.json node@0.0.0 No repository field.
+7 warn package.json node@0.0.0 No README data
+8 verbose readDependencies using package.json deps
+9 verbose cache add [ 'node-formidable', null ]
+10 verbose cache add name=undefined spec="node-formidable" args=["node-formidable",null]
+11 verbose parsed url { protocol: null,
+11 verbose parsed url   slashes: null,
+11 verbose parsed url   auth: null,
+11 verbose parsed url   host: null,
+11 verbose parsed url   port: null,
+11 verbose parsed url   hostname: null,
+11 verbose parsed url   hash: null,
+11 verbose parsed url   search: null,
+11 verbose parsed url   query: null,
+11 verbose parsed url   pathname: 'node-formidable',
+11 verbose parsed url   path: 'node-formidable',
+11 verbose parsed url   href: 'node-formidable' }
+12 silly lockFile 2081aba7-node-formidable node-formidable
+13 verbose lock node-formidable C:\Users\huanglijun\AppData\Roaming\npm-cache\2081aba7-node-formidable.lock
+14 silly lockFile 2081aba7-node-formidable node-formidable
+15 silly lockFile 2081aba7-node-formidable node-formidable
+16 verbose addNamed [ 'node-formidable', '' ]
+17 verbose addNamed [ null, '*' ]
+18 silly lockFile 0e46e678-node-formidable node-formidable@
+19 verbose lock node-formidable@ C:\Users\huanglijun\AppData\Roaming\npm-cache\0e46e678-node-formidable.lock
+20 silly addNameRange { name: 'node-formidable', range: '*', hasData: false }
+21 verbose request where is /node-formidable
+22 verbose request registry https://registry.npmjs.org/
+23 verbose request id 9525391ebb93542b
+24 verbose url raw /node-formidable
+25 verbose url resolving [ 'https://registry.npmjs.org/', './node-formidable' ]
+26 verbose url resolved https://registry.npmjs.org/node-formidable
+27 verbose request where is https://registry.npmjs.org/node-formidable
+28 info trying registry request attempt 1 at 13:21:01
+29 http GET https://registry.npmjs.org/node-formidable
+30 http 404 https://registry.npmjs.org/node-formidable
+31 verbose headers { date: 'Sat, 28 Feb 2015 05:21:04 GMT',
+31 verbose headers   server: 'CouchDB/1.6.1 (Erlang OTP/R14B04)',
+31 verbose headers   'content-type': 'application/json',
+31 verbose headers   'cache-control': 'max-age=0',
+31 verbose headers   'content-length': '52',
+31 verbose headers   'accept-ranges': 'bytes',
+31 verbose headers   via: '1.1 varnish',
+31 verbose headers   age: '0',
+31 verbose headers   'x-served-by': 'cache-nrt6130-NRT',
+31 verbose headers   'x-cache': 'MISS',
+31 verbose headers   'x-cache-hits': '0',
+31 verbose headers   'x-timer': 'S1425100864.495099,VS0,VE172',
+31 verbose headers   'keep-alive': 'timeout=10, max=50',
+31 verbose headers   connection: 'Keep-Alive' }
+32 silly registry.get cb [ 404,
+32 silly registry.get   { date: 'Sat, 28 Feb 2015 05:21:04 GMT',
+32 silly registry.get     server: 'CouchDB/1.6.1 (Erlang OTP/R14B04)',
+32 silly registry.get     'content-type': 'application/json',
+32 silly registry.get     'cache-control': 'max-age=0',
+32 silly registry.get     'content-length': '52',
+32 silly registry.get     'accept-ranges': 'bytes',
+32 silly registry.get     via: '1.1 varnish',
+32 silly registry.get     age: '0',
+32 silly registry.get     'x-served-by': 'cache-nrt6130-NRT',
+32 silly registry.get     'x-cache': 'MISS',
+32 silly registry.get     'x-cache-hits': '0',
+32 silly registry.get     'x-timer': 'S1425100864.495099,VS0,VE172',
+32 silly registry.get     'keep-alive': 'timeout=10, max=50',
+32 silly registry.get     connection: 'Keep-Alive' } ]
+33 silly lockFile 0e46e678-node-formidable node-formidable@
+34 silly lockFile 0e46e678-node-formidable node-formidable@
+35 error 404 404 Not Found: node-formidable
+35 error 404
+35 error 404 'node-formidable' is not in the npm registry.
+35 error 404 You should bug the author to publish it
+35 error 404 It was specified as a dependency of 'application-name'
+35 error 404
+35 error 404 Maybe try 'npm search formidable'
+35 error 404
+35 error 404 Note that you can also install from a
+35 error 404 tarball, folder, or http url, or git url.
+36 error System Windows_NT 6.1.7601
+37 error command "D:\\nodejs\\\\node.exe" "D:\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "node-formidable"
+38 error cwd E:\Todo
+39 error node -v v0.10.35
+40 error npm -v 1.4.28
+41 error code E404
+42 verbose exit [ 1, true ]

@@ -1,0 +1,12 @@
+.todos-container {
+	padding-top: 100px;
+}
+.tableList{
+	margin-top: 15px;
+}
+.tableList th,.tableList td{
+	border:1px solid #ddd;
+}
+.table thead:first-child tr:first-child th{
+	border-top: 1px solid #ddd;
+}

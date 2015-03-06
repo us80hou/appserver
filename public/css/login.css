@@ -1,0 +1,18 @@
+.login {
+	padding-top: 100px;
+}
+
+.login-screen {
+	position: relative;
+}
+
+.login-icon {
+	position: absolute;
+	width: 110px;
+	left: 150px;
+	top: 130px;
+}
+
+.login-form {
+	width: 310px;
+}

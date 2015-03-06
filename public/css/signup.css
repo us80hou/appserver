@@ -1,0 +1,13 @@
+.signup{
+	position: absolute;
+	top : 80px;
+	left : 400px;
+}
+.signup label{
+	display: inline-block;
+	width: 100px;
+	text-align: right;
+}
+#register{
+	margin:10px 0 0 100px;
+}

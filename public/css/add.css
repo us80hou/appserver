@@ -1,0 +1,11 @@
+.add,.edit {
+	padding-top: 100px;
+}
+.add_btn,.edit_btn{
+	padding:8px 15px;
+	text-align: center;
+	display:inline;
+}
+.editButton{
+	margin:25px 0 0 180px;
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="/static/css/bootstrap.min.css" rel="stylesheet" />
+<link href="/static/css/bootstrap-theme.min.css" rel="stylesheet" />
+<link href="/static/css/style.css" rel="stylesheet" />
+<title><%= title %> - 萤石招聘</title>
+</head>
+<body>
+<script src="/js/jquery.js"></script>
+
+	<!-- Large modal -->
+	
+	<form class="form-horizontal" enctype="multipart/form-data" role="form" id="form">
+	
+			
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<input type="file" id="resume"  name="upload" class="resumeinput" multiple="multiple"> 
+					<span id="resumepop" class="inputpop" data-toggle="popover" data-content="附件错误">&nbsp;</span>
+				</div>
+			</div>
+		
+	
+	</form>
+
+<script src="/js/jquery.form.js"></script>
+<script>
+
+
+	
+function upload(){
+	
+	var options = {
+		url:'./resume', 
+		type:'POST',
+		dataType:'json',
+		data: { 
+			file: $('#resume').val()
+		},
+		success: function(ret){
+
+		} 
+	};
+
+	$('form').ajaxSubmit(options);
+	
+	return false;
+
+}
+
+
+</script>
+</body>
+</html>
