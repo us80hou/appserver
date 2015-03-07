@@ -43,7 +43,9 @@ module.exports = function(app,server,rootdir) {
 	app.post('/api/saveImg',site.saveImg);
 
 	//上传图片
-	app.post('/upload', site.upload);
+	// app.post('/upload', site.upload);
 	
+	//注册
+	app.post('/register', site.register);
 
 }

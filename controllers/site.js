@@ -1,5 +1,6 @@
 var Todo = require('../models/Todo'),
 	Pics = require('../models/Pics'),
+	UserDB = require('../models/UserDB'),
     path = require('path'),
     fs = require('fs'),
     formidable = require('formidable');
@@ -217,66 +218,86 @@ exports.add = function(req, res) {
 
 }
 
-
 exports.remove = function(req,res){
 	console.log('remove!!!!');
 }
 
+//注册用户
+exports.register = function( req, res ){
+	upload( req, res , function(req, res){
+		//req.body.date = tool.getTime();
+		console.log( "**********"+req.body.account );
+		console.log( "**********"+req.body.password );
+		var userDB = new UserDB(req.body);
+		userDB.save(function(err,results, fields) {
+			if( !err ){
+  	 			res.json({
+					resultCode: 1000,
+					description: '保存成功！'
+				});
+			console.log('img saved success!');
+			}
+		});
+
+	});
+};
+
 //上传文件/图片
-exports.upload = function(req,res,callback){
+ function upload(req,res,callback){
 
 	var form = new formidable.IncomingForm(),
 		_end = false;
 
     form.parse( req, function( err, fields, files ) {
 		console.log(req);
-		if( !fields.name || fields.name.length > 10 ){
-			_end = true;
-			return  res.send( { resultCode: 1000 , msg: 'name must be in' } );
-		}
+		// if( !fields.name || fields.name.length > 10 ){
+		// 	_end = true;
+		// 	return  res.send( { resultCode: 1000 , msg: '图片添加成功' } );
+		// }
 
-		if( !fields.mobile || !/1\d{10}/.test( fields.mobile ) ){
-			_end = true;
-			return  res.send( { resultCode: 1001 , msg: 'mobile must be in' } );
-		}
+		// if( !fields.mobile || !/1\d{10}/.test( fields.mobile ) ){
+		// 	_end = true;
+		// 	return  res.send( { resultCode: 1001 , msg: 'mobile must be in' } );
+		// }
 
-	   if( !files.upload ){
-		   _end = true;
-		  return  res.send( { resultCode: 1100 , msg: '请添加附件' } );
-	   }
-	   if( files.upload.size >= 5 * 1024 * 1024 ){
-		   _end = true;
-		  return  res.send( { resultCode: 1101 , msg: '附件超出限定大小' } );
-	   } 
-	   var s = files.upload.name.split('.'),
-		   type = s[s.length -1];
-	   if( ['docx','doc','rar','zip','pdf','wps','jpg','bmp','png','gif'].indexOf(s[s.length -1].toLowerCase()) < 0 ){
-		   _end = true;
-		  return  res.send( { resultCode: 1102 , msg: '附件类型错误' } );
-	   }
+	 //   if( !files.upload ){
+		//    _end = true;
+		//   return  res.send( { resultCode: 1100 , msg: '请添加附件' } );
+	 //   }
+	 //   if( files.upload.size >= 5 * 1024 * 1024 ){
+		//    _end = true;
+		//   return  res.send( { resultCode: 1101 , msg: '附件超出限定大小' } );
+	 //   } 
+	 //   var s = files.upload.name.split('.'),
+		//    type = s[s.length -1];
+	 //   if( ['docx','doc','rar','zip','pdf','wps','jpg','bmp','png','gif'].indexOf(s[s.length -1].toLowerCase()) < 0 ){
+		//    _end = true;
+		//   return  res.send( { resultCode: 1102 , msg: '附件类型错误' } );
+	 //   }
 
-	   var ip = tool.getClientIp( req );
-		if( hosts[ ip ] ){
-			res.send( {
-				resultCode: 1104,
-				msg: '提交过于频繁，请一分钟后再试'
-			} );
-			_end = true;
-			return;
-		}
-		if( hostsDay[ ip ] && hostsDay[ip] > 9 ){
-			res.send( {
-				resultCode: 1105,
-				msg: '提交过于频繁，请第二天再试'
-			} );
-			_end = true;
-			return;
-		} else {
-			hostsDay[ ip ] ? hostsDay[ ip ]++ : hostsDay[ ip ] = 1;
-		}
-		hosts[ ip ] = tool.getTime( { type: 'millis' } );
+	 //   var ip = tool.getClientIp( req );
+		// if( hosts[ ip ] ){
+		// 	res.send( {
+		// 		resultCode: 1104,
+		// 		msg: '提交过于频繁，请一分钟后再试'
+		// 	} );
+		// 	_end = true;
+		// 	return;
+		// }
+		// if( hostsDay[ ip ] && hostsDay[ip] > 9 ){
+		// 	res.send( {
+		// 		resultCode: 1105,
+		// 		msg: '提交过于频繁，请第二天再试'
+		// 	} );
+		// 	_end = true;
+		// 	return;
+		// } else {
+		// 	hostsDay[ ip ] ? hostsDay[ ip ]++ : hostsDay[ ip ] = 1;
+		// }
+		// hosts[ ip ] = tool.getTime( { type: 'millis' } );
 	   req.body = fields;
-	   req.body.annex = files.upload.path;
+	   req.body.userpic = files.upload.path;
+	   console.log("&&&&&&&&&&&&"+fields);
 
     });
 
@@ -299,6 +320,9 @@ exports.upload = function(req,res,callback){
     return;
 
 }
+
+
+
 
 
 //保存base64图片
