@@ -12,7 +12,7 @@ var express = require('express'),
 	bodyParser = require( 'body-parser' );
 
 //连接数据库，如果连接成功，后台提示成功
-mongoose.connect('mongodb://127.0.0.1/Todos', function(err) {
+mongoose.connect('mongodb://127.0.0.1:29197/Todos', function(err) {
 	if (!err) {
 		console.log('connected to MongoDB!');
 	} else {
