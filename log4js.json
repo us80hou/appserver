@@ -1,7 +1,19 @@
 {
-  "appenders": [
-    {
-      "type": "console" 
+    "appenders" : [
+        {
+            "category" : "appserver",
+            "type" : "file",
+            "maxLogSize" : 10485760,
+            "backups" : 10,
+            "pollInterval" : 15,
+            "filename" : "logs/appserver.log"
+        },
+        {
+            "category" : "system",
+            "type" : "console"
+        }],
+    "levels" : {
+        "system" : "INFO",
+        "Transmit" : "INFO"
     }
-  ]
 }

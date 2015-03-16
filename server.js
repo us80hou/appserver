@@ -9,13 +9,19 @@ var express = require('express'),
     path = require('path'),
     routes = require('./routes'),
     mongoose = require('mongoose'),
+    fs = require('fs'),
     bodyParser = require( 'body-parser' );
-
+var log = require('./log');
+var configPath = path.join(__dirname, '../appconf/appServer.json');
+var sysConfig = {};
+if(fs.existsSync(configPath)){
+    sysConfig = require(configPath);
+}
 exports.start = function(){
     //连接数据库，如果连接成功，后台提示成功
-    mongoose.connect('mongodb://121.40.206.188:29197/Todos', function(err) {
+    mongoose.connect('mongodb://'+ (sysConfig.databaseIP || '127.0.0.1') +':'+(sysConfig.databasePort||'29197')+'/Todos', function(err) {
         if (!err) {
-            console.log('connected to MongoDB!');
+            log.info('connected to MongoDB!');
         } else {
             throw err;
         }
@@ -63,7 +69,7 @@ exports.start = function(){
 
 //当服务端与客户端连接成功后，后台提示连接的端口号
     var server = http.createServer(app).listen(app.get('port'), function() {
-        console.log('Express server listening on port ' + app.get('port'));
+        log.info('Express server listening on port ' + app.get('port'));
     });
 
 

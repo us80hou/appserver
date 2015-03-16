@@ -5,7 +5,7 @@ log4js.configure('log4js.json', {
 	reloadSecs : 300
 });
 
-var log = log4js.getLogger("WebPush");
+var log = log4js.getLogger("appserver");
 
 function getLogger(category) {
 	log = log4js.getLogger(category);
